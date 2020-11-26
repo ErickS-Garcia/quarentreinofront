@@ -15,7 +15,7 @@ Trabalho da Disciplina de Lab. de Engenharia de Software
 
 ## About
 
-Projeto hospedado em:
+Projeto hospedado em
 
 ## Cronograma
 
