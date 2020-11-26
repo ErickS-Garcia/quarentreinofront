@@ -11,11 +11,10 @@ Trabalho da Disciplina de Lab. de Engenharia de Software
 - Caroline Nicochelli Medeiros - 31847341
 - Erick Sambrano Garcia - 31820972
 - Nicolle Aparecida Suryan - 31810446
-- Pedro Padilha Farroco - 31825672
 
 ## About
 
-Projeto hospedado em: <https://quarentreino.herokuapp.com>
+Projeto hospedado em:
 
 ## Cronograma
 
