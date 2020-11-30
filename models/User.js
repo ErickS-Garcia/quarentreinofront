@@ -33,8 +33,6 @@ const UserSchema = new Schema({
   },
   tipo: {
     type: String,
-    enum: ['aluno', 'professor', 'admin'],
-    default: 'aluno'
   },
   created: {
     type: Date,
