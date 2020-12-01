@@ -66,10 +66,10 @@
     <label for="inputTipo" class="sr-only">Tipo</label>
     <input type="radio" name="tipo" id="inputTipoAluno"
       class="w-100 form-control<%= locals.errors && locals.errors.tipoAluno ? ' is-invalid' : '' %>"
-      aria-describedby="tipoFeedback" value="<%= locals.values && locals.values.tipoAluno %>" />Aluno
+      aria-describedby="tipoFeedback" value="<%= locals.values && locals.values.aluno %>" />Aluno
     <input type="radio" name="tipo" id="inputTipoProf"
       class="w-100 form-control<%= locals.errors && locals.errors.tipoProf ? ' is-invalid' : '' %>"
-      aria-describedby="tipoFeedback" value="<%= locals.values && locals.values.tipoProf %>" />Professor
+      aria-describedby="tipoFeedback" value="<%= locals.values && locals.values.professor %>" />Professor
     <div id="tipoFeedback" class="invalid-feedback">
       <%= locals.errors && locals.errors.tipo || "" %>
     </div>

@@ -33,6 +33,7 @@ const UserSchema = new Schema({
   },
   tipo: {
     type: String,
+    required: [true]
   },
   created: {
     type: Date,
