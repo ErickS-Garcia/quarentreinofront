@@ -1,0 +1,35 @@
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<div class="container">
+  <div class="text-center p-3">
+    <button
+      id="delete"
+      class="btn btn-danger mt-10"
+      style="margin-top: 10px; margin-left: 13px"
+    >
+      Deletar exercício
+    </button>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card mt-3">
+        <div class="card-header"><%= locals.exercicio.nome %></div>
+        <div class="card-body">
+          <h5 class="card-title"><%= locals.exercicio.descricao %></h5>
+          <p class="card-text"><%= locals.exercicio.observacoes %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $('#delete').on('click', function () {
+    if (confirm('Tem certeza que deseja apagar este treino?')) {
+      $.ajax({ url: '/exercicios/<%= exercicio._id %>', method: 'DELETE' }).done(function () {
+        console.log('deleted');
+        window.location.replace('/professor')
+      });
+    }
+  });
+</script>

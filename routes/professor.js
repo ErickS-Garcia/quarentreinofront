@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     page: 'professor',
     path: '/professor',
     user: req.user,
-    scripts: ['professor', '../DataTables/datatables.min.js', 'moment.min.js'],
+    scripts: ['professor', 'exercicio', '../DataTables/datatables.min.js', 'moment.min.js'],
     styles: ['../DataTables/datatables.min.css']
   });
 });

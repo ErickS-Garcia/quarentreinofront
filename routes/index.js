@@ -8,6 +8,7 @@ const usersRouter = require('./users');
 const adminRouter = require('./admin');
 const alunoRouter = require('./aluno');
 const treinosRouter = require('./treinos');
+const exerciciosRouter = require('./exercicios');
 const professorRouter = require('./professor');
 
 router.use('/auth', authRouter);
@@ -16,6 +17,7 @@ router.use('/aluno', requireAuth, requireAluno, alunoRouter);
 router.use('/professor', requireAuth, requireProfessor, professorRouter);
 router.use('/admin', requireAuth, requireAdmin, adminRouter);
 router.use('/treinos', treinosRouter);
+router.use('/exercicios', exerciciosRouter);
 
 router.get('/', async (req, res) => {
   return res.render('main', {

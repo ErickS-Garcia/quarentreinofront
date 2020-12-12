@@ -1,0 +1,102 @@
+<form class="user-form" method="post" autocomplete="off">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <h4 class="mb-3"><%= locals.formTitle || "Crie um treino" %></h4>
+  <div class="form-group">
+    <label for="inputEmail" class="sr-only">Email</label>
+    <input type="text" name="email" id="inputEmail" class="w-100 form-control<%= locals.errors &&
+    locals.errors.email ? ' is-invalid' : '' %>" placeholder="Email do aluno" aria-describedby="emailFeedback"
+      value="<%= locals.values && locals.values.email %>" />
+    <div id="emailFeedback" class="invalid-feedback">
+      <%= locals.errors && locals.errors.email || "" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputNascimento" class="sr-only">Nome do treino</label>
+    <input type="text" name="nome" id="inputNome"
+      class="w-100 form-control<%= locals.errors && locals.errors.nome ? ' is-invalid' : '' %>"
+      placeholder="Nome do treino" aria-describedby="nomeFeedback"
+      value="<%= locals.values && locals.values.nome %>" />
+    <div id="nomeFeedback" class="invalid-feedback">
+      <%= locals.errors && locals.errors.nome || "" %>
+    </div>
+  </div>
+  <div>Exercícios</div>
+  <div class="exercicios">
+
+  <div class="form-group">
+    <label for="inputExercicio" class="sr-only">Nome do exercício</label>
+    <input type="select" name="nomeExercicio" id="inputExercicio"
+      class="w-100 form-control<%= locals.errors && locals.errors.exercicio ? ' is-invalid' : '' %>"
+      placeholder="Nome do exercício" aria-describedby="exercicioFeedback"
+      value="<%= locals.values && locals.values.exercicio %>" />
+    <div id="exercicioFeedback" class="invalid-feedback">
+      <%= locals.errors && locals.errors.exercicio || "" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputDescricao" class="sr-only">Descrição</label>
+    <input type="text" name="descricao" id="inputDescricao"
+      class="w-100 form-control<%= locals.errors && locals.errors.descricao ? ' is-invalid' : '' %>"
+      placeholder="Descrição" aria-describedby="descricaoFeedback"
+      value="<%= locals.values && locals.values.descricao %>" />
+    <div id="descricaoFeedback" class="invalid-feedback">
+      <%= locals.errors && locals.errors.descricao || "" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputObservacoes" class="sr-only">Observações</label>
+    <input type="text" name="observacoes" id="inputObservacoes"
+      class="w-100 form-control<%= locals.errors && locals.errors.observacoes ? ' is-invalid' : '' %>"
+      placeholder="Observações" aria-describedby="observacoesFeedback"
+      value="<%= locals.values && locals.values.observacoes %>" />
+    <div id="observacoesFeedback" class="invalid-feedback">
+      <%= locals.errors && locals.errors.observacoes || "" %>
+    </div>
+  </div>
+</div>
+<button id="add" type="button">+</button>
+<button type="submit" class="btn btn-primary btn-block">Salvar</button>
+
+  </div>
+</form>
+<script>
+  $('#add').on('click', function () {
+    $('.exercicios').append(`  <div class="form-group">
+    <label for="inputExercicio" class="sr-only">Nome do exercício</label>
+    <input type="select" name="nomeExercicio" id="inputExercicio"
+      class="w-100 form-control<%= locals.errors && locals.errors.exercicio ? ' is-invalid' : '' %>"
+      placeholder="Nome do exercício" aria-describedby="exercicioFeedback"
+      value="<%= locals.values && locals.values.exercicio %>" />
+    <div id="exercicioFeedback" class="invalid-feedback">
+      <%= locals.errors && locals.errors.exercicio || "" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputDescricao" class="sr-only">Descrição</label>
+    <input type="text" name="descricao" id="inputDescricao"
+      class="w-100 form-control<%= locals.errors && locals.errors.descricao ? ' is-invalid' : '' %>"
+      placeholder="Descrição" aria-describedby="descricaoFeedback"
+      value="<%= locals.values && locals.values.descricao %>" />
+    <div id="descricaoFeedback" class="invalid-feedback">
+      <%= locals.errors && locals.errors.descricao || "" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inputObservacoes" class="sr-only">Observações</label>
+    <input type="text" name="observacoes" id="inputObservacoes"
+      class="w-100 form-control<%= locals.errors && locals.errors.observacoes ? ' is-invalid' : '' %>"
+      placeholder="Observações" aria-describedby="observacoesFeedback"
+      value="<%= locals.values && locals.values.observacoes %>" />
+    <div id="observacoesFeedback" class="invalid-feedback">
+      <%= locals.errors && locals.errors.observacoes || "" %>
+    </div>
+  </div>`)
+  })
+</script>

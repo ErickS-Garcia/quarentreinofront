@@ -62,18 +62,18 @@
       <%= locals.errors && locals.errors.telefone || "" %>
     </div>
   </div>
+  <% if (locals.formType === 'adminEditUser' || locals.formType === 'adminCreateUser') { %>
   <div class="form-group">
-    <label for="inputTipo" class="sr-only">Tipo</label>
-    <input type="radio" name="tipo" id="inputTipoAluno"
-      class="w-100 form-control<%= locals.errors && locals.errors.tipoAluno ? ' is-invalid' : '' %>"
-      aria-describedby="tipoFeedback" value="<%= locals.values && locals.values.tipoAluno %>" />Aluno
-    <input type="radio" name="tipo" id="inputTipoProf"
-      class="w-100 form-control<%= locals.errors && locals.errors.tipoProf ? ' is-invalid' : '' %>"
-      aria-describedby="tipoFeedback" value="<%= locals.values && locals.values.tipoProf %>" />Professor
-    <div id="tipoFeedback" class="invalid-feedback">
-      <%= locals.errors && locals.errors.tipo || "" %>
-    </div>
+    <label for="selectTipo" class="sr-only">Tipo</label>
+    <select class="form-control" id="selectTipo" name="tipo">
+      <option value="aluno" <%= locals.values && locals.values.tipo === 'aluno' ? 'selected' : '' %>>Aluno</option>
+      <option value="professor" <%= locals.values && locals.values.tipo === 'professor' ? 'selected' : '' %>>Professor
+      </option>
+      <option value="admin" <%= locals.values && locals.values.tipo === 'admin' ? 'selected' : '' %>>Admin</option>
+    </select>
   </div>
+  <% } %>
+
   <div>
     <button type="submit" class="btn btn-primary btn-block">Salvar</button>
     <% if (locals.formType === 'signup') { %>

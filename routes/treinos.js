@@ -9,11 +9,12 @@ const router = express.Router();
 const { requireProfessor, requireAdmin } = require('../middlewares');
 
 const Treino = require('../models/Treino');
+const Exercicio = require('../models/Exercicio');
 const User = require('../models/User');
 
 router.get('/', async (req, res) => {
   try {
-    const treinos = await Treino.find({ [req.user.tipo]: req.user._id }, '-conteudo').populate(
+    const treinos = await Treino.find({ [req.user.tipo]: req.user._id }).populate(
       'professor aluno',
       '-password -nascimento -email -telefone'
     );
@@ -59,6 +60,63 @@ router.post('/', requireProfessor, async (req, res) => {
     return res.status(500).redirect('/professor');
   }
 });
+
+router.post('/new', requireProfessor, async (req, res) => {
+  console.log(req.body)
+  try {
+    const { email, nome, nomeExercicio, observacoes, descricao } = req.body;
+    const conteudo = {
+      nome: nomeExercicio,
+      observacoes,
+      descricao
+    }
+    const exercicio = new Exercicio(conteudo)
+    exercicio.save(console.log((err) => {
+      if (err) {
+        console.log("Erro ao criar exercício", err)
+      }
+    }))
+    const aluno = await User.findOne({ email, tipo: 'aluno' });
+
+    if (aluno) {
+      const newTreino = await Treino.create({
+        professor: req.user._id,
+        aluno: aluno._id,
+        nome,
+        conteudo: exercicio
+      });
+
+      return res.redirect(`/treinos/${newTreino._id}`);
+    }
+
+    req.session.messages = [
+      ...(req.session.messages || []),
+      { variant: 'danger', content: 'O aluno informado é inválido' }
+    ];
+    return res.status(422).redirect('/professor');
+  } catch (error) {
+    console.error(error);
+    req.session.messages = [
+      ...(req.session.messages || []),
+      { variant: 'danger', content: 'Ocorreu um erro ao criar o treino. Por favor, tente mais tarde.' }
+    ];
+    return res.status(500).redirect('/professor');
+  }
+});
+
+router.get('/new', requireProfessor, async (req, res) => {
+  const exercicios = await Exercicio.find({})
+  console.log(exercicios)
+  return res.render('main', {
+    page: 'createTreino',
+    path: '/new/createTreino',
+    formTitle: 'Crie um treino',
+    user: req.user,
+    values: {
+      exercicios
+    }
+  })
+})
 
 router.get('/:id', async (req, res) => {
   try {

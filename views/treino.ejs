@@ -16,6 +16,7 @@
           <h5 class="card-title"><%= exercicio.descricao %></h5>
           <p class="card-text"><%= exercicio.observacoes %></p>
         </div>
+        <button class="btn btn-success mt-10" style="margin-top: 10px; margin-left: 13px;" onclick="window.location=`/treinos/<%= locals.treino._id %>/edit`">Editar treino</button>
       </div>
 
       <% }); %>

@@ -20,7 +20,6 @@ const alunosColumns = [
 ];
 
 $(document).ready(() => {
-  loadingIcon(true);
   const treinosTable = createTable('#treinosTable', {
     ajax: { url: '/treinos', dataSrc: '' },
     columns: treinosColumns
@@ -32,7 +31,6 @@ $(document).ready(() => {
     columns: alunosColumns
   }).on('init', () => {
     $('#alunosRow').hide();
-    loadingIcon(false);
   });
 
   treinosTable.on('click', 'tbody tr', function () {

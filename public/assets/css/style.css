@@ -204,9 +204,17 @@ body {
   cursor: pointer;
 }
 
+#treinosTable tr {
+  cursor: pointer;
+}
+
+td {
+  cursor: pointer!important;
+}
 .spinner {
   position: fixed;
   left: 50%;
   top: 50%;
   z-index: 999;
 }
+
