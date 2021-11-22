@@ -1,13 +1,10 @@
 # Quarentreino
-
-Trabalho da Disciplina de Lab. de Engenharia de Software
-
 ## Integrantes
 
-- Barbara de Abreu Moraes - 31847145
-- Caroline Nicochelli Medeiros - 31847341
+- Cristiane Barbosa - 41816684
+- Danilo Rossi - 31531873
 - Erick Sambrano Garcia - 31820972
-- Nicolle Aparecida Suryan - 31810446
+- Marlon Luiz de Oliveira - 31911641
 
 
 ## About
